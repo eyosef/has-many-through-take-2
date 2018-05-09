@@ -1,1 +1,13 @@
 
+<%= @user.username %>
+<%= @user.email %>
+
+<%= @user.comments.each do |comment| %>
+    <%= link_to @post.title, post_path(@post) %>
+    <%= @post.content %>
+
+    <%= @user.username %>says: <%= comment.content %>
+<% end %>
+
+<%= @post.title %>
+<%= @post.content %>
