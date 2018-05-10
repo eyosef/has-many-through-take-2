@@ -6,7 +6,12 @@
     <%= f.label :content %>
     <%= f.text_area :content %>
 
-    <%= f.collection_select :category_ids, Category.all, :id, :name %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+
+    <%= f.label "Create a New Category" %>
+    <%= f.fields_for :categories, @post.categories.build do |category| %>
+        <%= category.text_field :name %>
+    <% end %>
 
     <%= f.submit %>
 <% end %>

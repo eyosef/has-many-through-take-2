@@ -8,9 +8,14 @@
 
 
 <% @post.categories.each do |category| %>
-    <%= category %><br></br>
+    <%= link_to category.name, category %><br></br>
 <% end %>
 
+<ul>
+<% @post.users.uniq.each do |user| %>
+    <li> <%= link_to user.username, user %> </li>
+<% end %>
+<ul>
 
 <%= form_for @post.comments.build do |f| %>
     <%= f.hidden_field :post_id %>
